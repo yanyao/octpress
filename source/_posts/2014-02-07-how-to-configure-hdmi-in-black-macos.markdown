@@ -3,7 +3,7 @@ layout: post
 title: "how to configure HDMI in Black MacOS"
 date: 2014-02-07 21:22:50 +0800
 comments: true
-categories: [OSX,Mavericks,Mutil-Beast,HDMI_Audio,黑苹果]
+categories: [OSX,Mavericks,Mutil-Beast,HDMI_Audio]
 ---
 从Lion发布就一直使用黑苹果了。当时也是根据tonymacx86上面的推荐配置，基本所有的硬件都有驱动。包括声卡、显卡、网卡。因为家里有两个显示设备，一个是用了多年的Dell
 2007FP，另外还有一个Sony
@@ -15,7 +15,7 @@ Gigabyte Z77-DS3H</br>
 </blockquote>
 主板是Intel
 7系列,但是我的CPU却是2700.也就是说主板和cpu不是一代产品。主板比CPU高一个版本。
-
+<!-- more -->
 HDMI可以工作的核心操作是通过修改DSDT，来让OSX识别显卡的HDMI设备。下面具体的步骤参考tonymacx86大神toleda的[github](https://github.com/toleda/audio_hdmi_hd4000).
 需要说明以下几点：</br>
 </br>
@@ -27,9 +27,12 @@ HDMI可以工作的核心操作是通过修改DSDT，来让OSX识别显卡的HDM
 
 {% img /images/MaciASL.png "MaciASL Patch Windows" %}
 
+最终的dsdt点击[这里](/raw_files/dsdt.aml)
+
 Patch结束后，需要保存为/Extra/dsdt.aml, 重启机器后在'System
 Preferences'->'Sound'里可以看到新的HDMI设备。
 
 {% img /images/os_sound_hdmi.png "Sound Windows" %}
+
 
 这下终于可以通过电视的喇叭来听音乐了。:->
