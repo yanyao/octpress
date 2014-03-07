@@ -28,4 +28,5 @@ set mmonit http://monit:monit@<mmonit ip>:8080/collector
 ``` bash
 monit monitor <name>
 monit unmonitor <name>
+
 ```
