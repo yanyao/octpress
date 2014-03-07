@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Knife-solo | yanyao Blog]]></title>
+  <link href="http://yanyao.github.io//github/blog/categories/knife-solo/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io//github/"/>
+  <updated>2014-03-07T14:12:43+08:00</updated>
+  <id>http://yanyao.github.io//github/</id>
+  <author>
+    <name><![CDATA[yanyao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Knife-solo]]></title>
+    <link href="http://yanyao.github.io//github/blog/2014/02/11/knife-solo/"/>
+    <updated>2014-02-11T17:54:24+08:00</updated>
+    <id>http://yanyao.github.io//github/blog/2014/02/11/knife-solo</id>
+    <content type="html"><![CDATA[<p><code>knife-solo</code>
+是knife的一个插件。主要是用在没有chef-server的情况下，代替一部分chef-server的功能。其实本质就是将chef中的cookbook、data bag、roles的信息传递给chef-client，之后再调用目标节点上的<code>chef-solo</code>程序。<code>knife-solo</code>本身主要包括以下三个命令：</p>
+
+<p><em><code>knife solo init DIRECTORY</code></em></p>
+
+<p>用来设置knife-solo的工作环境，这个命令需要一个目录作为输入.这个命令的作用类似于chef构架中的workstation. 所以在这个目录上，我们可以调用<code>knife</code>源生命令<code>cookbook</code>、<code>data bag</code>以及<code>role</code>。
+<code>bash
+$knife solo init solo
+$tree solo
+.
+├── cookbooks
+├── data_bags
+├── nodes
+├── roles
+├── site-cookbooks
+└── solo.rb
+</code></p>
+
+<p><em><code>knife solo prepare user@hostname</code></em></p>
+
+<p><code>prepare</code>命令主要是在目标节点上安装<code>chef-client</code>。这个命令之后就需要给该节点制定一个<code>run_list</code>了。在<code>knife
+sole
+init</code>之后，会产生一个<code>nodes</code>的目录，该目录将要存放各个目标节点的<code>run_list</code>的配置文件。节点对应的文件是该节点的IP地址或者主机名命名的。例如主机<code>192.168.1.33</code>所对应的文件是<code>nodes/192.168.1.33.json</code>。该文件是json格式的。</p>
+
+<pre><code>    {"run_list":["recipe[test]"]}
+</code></pre>
+
+<p>该配置只包含了一个recipe，多个recipe或者role都可以添加在里面。</p>
+
+<p><em><code>knife solo cook user@hostname</code></em></p>
+
+<p><code>cook</code>
+命令主要是在目标节点上执行<code>chef-solo</code>命令。也就是将<code>run_list</code>里面对应的cookbook展开，实现cookbook定义的行为。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to Configure HDMI in Black MacOS - yanyao Blog</title>
+  <meta name="author" content="yanyao">
+
+  
+  <meta name="description" content="从Lion发布就一直使用黑苹果了。当时也是根据tonymacx86上面的推荐配置，基本所有的硬件都有驱动。包括声卡、显卡、网卡。因为家里有两个显示设备，一个是用了多年的Dell
+2007FP，另外还有一个Sony
+24寸的电视。一直都想把两个显示设备都利用上，显然会大大提高工作效率。 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos">
+  <link href="/octpress/favicon.png" rel="icon">
+  <link href="/octpress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/octpress/atom.xml" rel="alternate" title="yanyao Blog" type="application/atom+xml">
+  <script src="/octpress/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/octpress/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/octpress/">yanyao Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/octpress/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yanyao.github.io//github" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/octpress/">Blog</a></li>
+  <li><a href="/octpress/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to Configure HDMI in Black MacOS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T21:22:50+08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://yanyao.github.io//github">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>从Lion发布就一直使用黑苹果了。当时也是根据tonymacx86上面的推荐配置，基本所有的硬件都有驱动。包括声卡、显卡、网卡。因为家里有两个显示设备，一个是用了多年的Dell
+2007FP，另外还有一个Sony
+24寸的电视。一直都想把两个显示设备都利用上，显然会大大提高工作效率。所以当初买显卡的时候一定要选择支持多显示支持的，至少可以一个通过DVI输出到Dell的显示器上，另外通过HDMI输出到Sony的电视上。其实这个功能在Lion已经实现了。但是一直没法通过HDMI将Mac的声音输出到电视上。以前也没有觉得有什么不方便，因为平时也不会经常使用电脑来听音乐。但是这个唯一在黑苹果上没有实现的硬件功能，总是一直都是遗憾。趁假期还有一些时间，今天又重新燃起了解决这个两年多没有解决问题的念头。我的硬件配置主要为：</p>
+
+<blockquote>
+Intel Core i7 2700K</br>
+HIS 6870 IceQ Turbo 1GB DDR5</br>
+Gigabyte Z77-DS3H</br>
+</blockquote>
+
+
+<p>主板是Intel
+7系列,但是我的CPU却是2700.也就是说主板和cpu不是一代产品。主板比CPU高一个版本。</p>
+
+<!-- more -->
+
+
+<p>HDMI可以工作的核心操作是通过修改DSDT，来让OSX识别显卡的HDMI设备。下面具体的步骤参考tonymacx86大神toleda的<a href="https://github.com/toleda/audio_hdmi_hd4000">github</a>.
+需要说明以下几点：</br>
+</br>
+1. Gigabyte的主板不需要DSDT，所以需要通过MaciASL获得当前的DSDT</br>
+&ndash;> MaciASL/File/New from ACPI/DSDT </br>
+2. MaciASL可能编译有错误。这时候可能需要手动更改代码</br>
+3. MaciASL patch需要打两个。分别为&#8221;AMI-EFI/Clean
+   Compile&#8221;和&#8221;AMI-AMD-Nvida-7_Series-A1&#8221;。 Patch窗口如下图所示：</br></p>
+
+<p><img src="/octpress/images/MaciASL.png" title="&#34;MaciASL Patch Windows&#34;" alt="&#34;MaciASL Patch Windows&#34;"></p>
+
+<p>最终的dsdt点击<a href="/octpress/raw_files/dsdt.aml">这里</a></p>
+
+<p>Patch结束后，需要保存为/Extra/dsdt.aml, 重启机器后在&#8217;System
+Preferences&#8217;&ndash;>&lsquo;Sound&#8217;里可以看到新的HDMI设备。</p>
+
+<p><img src="/octpress/images/os_sound_hdmi.png" title="&#34;Sound Windows&#34;" alt="&#34;Sound Windows&#34;"></p>
+
+<p>这下终于可以通过电视的喇叭来听音乐了。:&ndash;></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yanyao</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T21:22:50+08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/octpress/blog/categories/hdmi-audio/'>HDMI_Audio</a>, <a class='category' href='/octpress/blog/categories/mavericks/'>Mavericks</a>, <a class='category' href='/octpress/blog/categories/mutil-beast/'>Mutil-Beast</a>, <a class='category' href='/octpress/blog/categories/osx/'>OSX</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="/octpress//twitter.com/share" class="twitter-share-button" data-url="http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/" data-via="" data-counturl="http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/" title="Previous Post: How to use Octopress Vim Plugin - vim-octopress">&laquo; How to use Octopress Vim Plugin - vim-octopress</a>
+      
+      
+        <a class="basic-alignment right" href="/octpress/blog/2014/02/11/knife-solo/" title="Next Post: knife-solo">knife-solo &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/octpress/blog/2014/03/07/test/">Test</a>
+      </li>
+    
+      <li class="post">
+        <a href="/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/">How to Configure M/monit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/octpress/blog/2014/02/11/knife-solo/">Knife-solo</a>
+      </li>
+    
+      <li class="post">
+        <a href="/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/">How to Configure HDMI in Black MacOS</a>
+      </li>
+    
+      <li class="post">
+        <a href="/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/">How to Use Octopress Vim Plugin - Vim-octopress</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/octpress/blog/categories/hdmi-audio/'>HDMI_Audio (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/mavericks/'>Mavericks (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/mutil-beast/'>Mutil-Beast (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/osx/'>OSX (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/chef/'>chef (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/knife/'>knife (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/knife-solo/'>knife-solo (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/octopress/'>octopress (2)</a></li>
+
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yanyao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'yanyao';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/';
+        var disqus_url = 'http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
