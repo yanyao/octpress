@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mavericks | yanyao Blog]]></title>
-  <link href="http://yanyao.github.io//github/blog/categories/mavericks/atom.xml" rel="self"/>
-  <link href="http://yanyao.github.io//github/"/>
-  <updated>2014-03-07T14:12:43+08:00</updated>
-  <id>http://yanyao.github.io//github/</id>
+  <link href="http://yanyao.github.io/octpress/blog/categories/mavericks/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io/octpress/"/>
+  <updated>2014-03-07T14:24:39+08:00</updated>
+  <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Configure HDMI in Black MacOS]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/"/>
     <updated>2014-02-07T21:22:50+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos</id>
     <content type="html"><![CDATA[<p>从Lion发布就一直使用黑苹果了。当时也是根据tonymacx86上面的推荐配置，基本所有的硬件都有驱动。包括声卡、显卡、网卡。因为家里有两个显示设备，一个是用了多年的Dell
 2007FP，另外还有一个Sony
 24寸的电视。一直都想把两个显示设备都利用上，显然会大大提高工作效率。所以当初买显卡的时候一定要选择支持多显示支持的，至少可以一个通过DVI输出到Dell的显示器上，另外通过HDMI输出到Sony的电视上。其实这个功能在Lion已经实现了。但是一直没法通过HDMI将Mac的声音输出到电视上。以前也没有觉得有什么不方便，因为平时也不会经常使用电脑来听音乐。但是这个唯一在黑苹果上没有实现的硬件功能，总是一直都是遗憾。趁假期还有一些时间，今天又重新燃起了解决这个两年多没有解决问题的念头。我的硬件配置主要为：</p>

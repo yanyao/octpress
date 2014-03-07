@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Octopress | yanyao Blog]]></title>
-  <link href="http://yanyao.github.io//github/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://yanyao.github.io//github/"/>
-  <updated>2014-03-07T14:12:43+08:00</updated>
-  <id>http://yanyao.github.io//github/</id>
+  <link href="http://yanyao.github.io/octpress/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io/octpress/"/>
+  <updated>2014-03-07T14:24:39+08:00</updated>
+  <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Use Octopress Vim Plugin - Vim-octopress]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/"/>
     <updated>2014-02-07T15:04:38+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress</id>
     <content type="html"><![CDATA[<p>octopress的vim插件本身比较轻量。主要是对Markdown格式的高亮和一些Octopress
 常用rake命令的集成. 下面是安装vim-Octopress 的一些简单步骤.</p>
 
@@ -35,9 +35,9 @@ autocmd BufNewFile,BufRead *.markdown,*.textile set filetype=octopress
   
   <entry>
     <title type="html"><![CDATA[Octopress 中文问题解决]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/hehe/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/hehe/"/>
     <updated>2014-02-07T12:20:15+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/hehe</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/hehe</id>
     <content type="html"><![CDATA[<p>在Mac下，zsh的环境下，LC_ALL和LANG这两个环境变量是不存在的，所以导致octopress在运行</p>
 
 <p><code>plain

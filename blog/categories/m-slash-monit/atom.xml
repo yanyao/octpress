@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: M/monit | yanyao Blog]]></title>
+  <link href="http://yanyao.github.io/octpress/blog/categories/m-slash-monit/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io/octpress/"/>
+  <updated>2014-03-07T14:24:39+08:00</updated>
+  <id>http://yanyao.github.io/octpress/</id>
+  <author>
+    <name><![CDATA[yanyao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Configure M/monit]]></title>
+    <link href="http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/"/>
+    <updated>2014-03-06T10:36:54+08:00</updated>
+    <id>http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit</id>
+    <content type="html"><![CDATA[<p>M/Monit这边只需要启动就可以
+<code>bash
+wget http://www.mmonit.com/dist/mmonit-3.1.2-macosx-universal.tar.gz
+tar xfz mmonit-3.1.2-macosx-universal.tar.gz
+cd mmonit-3.1.2
+./mmonit
+</code></p>
+
+<p>Monit需要更改指向该M/Monit的配置，配置在<em>/etc/monit.conf</em>.主要需要指定M/Monit的地址
+```
+set httpd port 2812</p>
+
+<pre><code>allow &lt;mmonit ip&gt;
+allow localhost
+allow admin:monit      # require user 'admin' with password 'monit'
+allow @monit           # allow users of group 'monit' to connect (rw)
+allow @users readonly  # allow users of group 'users' to connect readonly
+</code></pre>
+
+<p>set mmonit <a href="http://monit:monit@">http://monit:monit@</a><mmonit ip>:8080/collector
+```</p>
+
+<hr />
+
+<p>对于Monit,可以通过<code>monit</code>命令来打开或者关闭对于某个服务的监控
+``` bash
+monit monitor <name>
+monit unmonitor <name></p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

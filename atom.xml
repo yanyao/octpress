@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[yanyao Blog]]></title>
-  <link href="http://yanyao.github.io//github/atom.xml" rel="self"/>
-  <link href="http://yanyao.github.io//github/"/>
-  <updated>2014-03-07T14:12:43+08:00</updated>
-  <id>http://yanyao.github.io//github/</id>
+  <link href="http://yanyao.github.io/octpress/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io/octpress/"/>
+  <updated>2014-03-07T14:24:39+08:00</updated>
+  <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[Test]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/03/07/test/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/03/07/test/"/>
     <updated>2014-03-07T13:18:33+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/03/07/test</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/03/07/test</id>
     <content type="html"><![CDATA[<p><code>sfat</code> just for testing</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Configure M/monit]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/03/06/how-to-configure-m-slash-monit/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/"/>
     <updated>2014-03-06T10:36:54+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/03/06/how-to-configure-m-slash-monit</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit</id>
     <content type="html"><![CDATA[<p>M/Monit这边只需要启动就可以</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -74,9 +74,9 @@
   
   <entry>
     <title type="html"><![CDATA[Knife-solo]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/11/knife-solo/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/11/knife-solo/"/>
     <updated>2014-02-11T17:54:24+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/11/knife-solo</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/11/knife-solo</id>
     <content type="html"><![CDATA[<p><code>knife-solo</code>
 是knife的一个插件。主要是用在没有chef-server的情况下，代替一部分chef-server的功能。其实本质就是将chef中的cookbook、data bag、roles的信息传递给chef-client，之后再调用目标节点上的<code>chef-solo</code>程序。<code>knife-solo</code>本身主要包括以下三个命令：</p>
 
@@ -125,9 +125,9 @@ init</code>之后，会产生一个<code>nodes</code>的目录，该目录将要
   
   <entry>
     <title type="html"><![CDATA[How to Configure HDMI in Black MacOS]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/"/>
     <updated>2014-02-07T21:22:50+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/how-to-configure-hdmi-in-black-macos</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos</id>
     <content type="html"><![CDATA[<p>从Lion发布就一直使用黑苹果了。当时也是根据tonymacx86上面的推荐配置，基本所有的硬件都有驱动。包括声卡、显卡、网卡。因为家里有两个显示设备，一个是用了多年的Dell
 2007FP，另外还有一个Sony
 24寸的电视。一直都想把两个显示设备都利用上，显然会大大提高工作效率。所以当初买显卡的时候一定要选择支持多显示支持的，至少可以一个通过DVI输出到Dell的显示器上，另外通过HDMI输出到Sony的电视上。其实这个功能在Lion已经实现了。但是一直没法通过HDMI将Mac的声音输出到电视上。以前也没有觉得有什么不方便，因为平时也不会经常使用电脑来听音乐。但是这个唯一在黑苹果上没有实现的硬件功能，总是一直都是遗憾。趁假期还有一些时间，今天又重新燃起了解决这个两年多没有解决问题的念头。我的硬件配置主要为：</p>
@@ -154,14 +154,14 @@ Gigabyte Z77-DS3H</br>
 3. MaciASL patch需要打两个。分别为&#8221;AMI-EFI/Clean
    Compile&#8221;和&#8221;AMI-AMD-Nvida-7_Series-A1&#8221;。 Patch窗口如下图所示：</br></p>
 
-<p><img src="http://yanyao.github.io//github/images/MaciASL.png" title="&#34;MaciASL Patch Windows&#34;" alt="&#34;MaciASL Patch Windows&#34;"></p>
+<p><img src="http://yanyao.github.io/octpress/images/MaciASL.png" title="&#34;MaciASL Patch Windows&#34;" alt="&#34;MaciASL Patch Windows&#34;"></p>
 
-<p>最终的dsdt点击<a href="http://yanyao.github.io//github/raw_files/dsdt.aml">这里</a></p>
+<p>最终的dsdt点击<a href="http://yanyao.github.io/octpress/raw_files/dsdt.aml">这里</a></p>
 
 <p>Patch结束后，需要保存为/Extra/dsdt.aml, 重启机器后在&#8217;System
 Preferences&#8217;&ndash;>&lsquo;Sound&#8217;里可以看到新的HDMI设备。</p>
 
-<p><img src="http://yanyao.github.io//github/images/os_sound_hdmi.png" title="&#34;Sound Windows&#34;" alt="&#34;Sound Windows&#34;"></p>
+<p><img src="http://yanyao.github.io/octpress/images/os_sound_hdmi.png" title="&#34;Sound Windows&#34;" alt="&#34;Sound Windows&#34;"></p>
 
 <p>这下终于可以通过电视的喇叭来听音乐了。:&ndash;></p>
 ]]></content>
@@ -169,9 +169,9 @@ Preferences&#8217;&ndash;>&lsquo;Sound&#8217;里可以看到新的HDMI设备。<
   
   <entry>
     <title type="html"><![CDATA[How to Use Octopress Vim Plugin - Vim-octopress]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/"/>
     <updated>2014-02-07T15:04:38+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress</id>
     <content type="html"><![CDATA[<p>octopress的vim插件本身比较轻量。主要是对Markdown格式的高亮和一些Octopress
 常用rake命令的集成. 下面是安装vim-Octopress 的一些简单步骤.</p>
 
@@ -192,9 +192,9 @@ Preferences&#8217;&ndash;>&lsquo;Sound&#8217;里可以看到新的HDMI设备。<
   
   <entry>
     <title type="html"><![CDATA[Octopress 中文问题解决]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/07/hehe/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/hehe/"/>
     <updated>2014-02-07T12:20:15+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/07/hehe</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/07/hehe</id>
     <content type="html"><![CDATA[<p>在Mac下，zsh的环境下，LC_ALL和LANG这两个环境变量是不存在的，所以导致octopress在运行</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

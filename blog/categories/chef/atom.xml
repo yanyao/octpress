@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Chef | yanyao Blog]]></title>
-  <link href="http://yanyao.github.io//github/blog/categories/chef/atom.xml" rel="self"/>
-  <link href="http://yanyao.github.io//github/"/>
-  <updated>2014-03-07T14:12:43+08:00</updated>
-  <id>http://yanyao.github.io//github/</id>
+  <link href="http://yanyao.github.io/octpress/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://yanyao.github.io/octpress/"/>
+  <updated>2014-03-07T14:24:39+08:00</updated>
+  <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Knife-solo]]></title>
-    <link href="http://yanyao.github.io//github/blog/2014/02/11/knife-solo/"/>
+    <link href="http://yanyao.github.io/octpress/blog/2014/02/11/knife-solo/"/>
     <updated>2014-02-11T17:54:24+08:00</updated>
-    <id>http://yanyao.github.io//github/blog/2014/02/11/knife-solo</id>
+    <id>http://yanyao.github.io/octpress/blog/2014/02/11/knife-solo</id>
     <content type="html"><![CDATA[<p><code>knife-solo</code>
 是knife的一个插件。主要是用在没有chef-server的情况下，代替一部分chef-server的功能。其实本质就是将chef中的cookbook、data bag、roles的信息传递给chef-client，之后再调用目标节点上的<code>chef-solo</code>程序。<code>knife-solo</code>本身主要包括以下三个命令：</p>
 
