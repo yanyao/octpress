@@ -3,7 +3,7 @@ layout: post
 title: "how to configure m/monit"
 date: 2014-03-06 10:36:54 +0800
 comments: true
-categories: 
+categories: monit m/monit
 ---
 M/Monit这边只需要启动就可以
 ``` bash
