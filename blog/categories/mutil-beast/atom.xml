@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mutil-Beast | yanyao Blog]]></title>
+  <title><![CDATA[Category: Mutil-Beast | YanYa0]]></title>
   <link href="http://yanyao.github.io/octpress/blog/categories/mutil-beast/atom.xml" rel="self"/>
   <link href="http://yanyao.github.io/octpress/"/>
-  <updated>2014-03-07T14:24:39+08:00</updated>
+  <updated>2014-03-12T12:42:43+08:00</updated>
   <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[How to Configure HDMI in Black MacOS]]></title>
+    <title type="html"><![CDATA[how to configure HDMI in Black MacOS]]></title>
     <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/"/>
     <updated>2014-02-07T21:22:50+08:00</updated>
     <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos</id>

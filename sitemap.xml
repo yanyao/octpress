@@ -2,44 +2,52 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://yanyao.github.io/octpress/blog/2014/02/07/hehe/</loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
     <url>
         <loc>
             http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/
         </loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
     <url>
         <loc>
             http://yanyao.github.io/octpress/blog/2014/02/07/how-to-configure-hdmi-in-black-macos/
         </loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
     <url>
         <loc>http://yanyao.github.io/octpress/blog/2014/02/11/knife-solo/</loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
     <url>
         <loc>
             http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/
         </loc>
-        <lastmod>2014-03-07T14:24:32+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
     <url>
         <loc>http://yanyao.github.io/octpress/blog/2014/03/07/test/</loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://yanyao.github.io/octpress/blog/2014/03/10/qemu-virtio-blk-data-plane/</loc>
+        <lastmod>2014-03-10T12:54:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://yanyao.github.io/octpress/blog/archives/</loc>
-        <lastmod>2014-03-07T14:24:32+08:00</lastmod>
+        <lastmod>2014-03-10T12:54:51+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://yanyao.github.io/octpress/blog/</loc>
+        <lastmod>2014-03-10T12:54:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://yanyao.github.io/octpress/</loc>
-        <lastmod>2014-03-07T14:24:32+08:00</lastmod>
+        <lastmod>2014-03-10T12:54:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://yanyao.github.io/octpress/robots.txt</loc>
-        <lastmod>2014-03-07T14:12:24+08:00</lastmod>
+        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
     </url>
 </urlset>
