@@ -4,7 +4,7 @@
   <title><![CDATA[YanYa0]]></title>
   <link href="http://yanyao.github.io/octpress/atom.xml" rel="self"/>
   <link href="http://yanyao.github.io/octpress/"/>
-  <updated>2014-03-12T12:42:43+08:00</updated>
+  <updated>2014-03-13T11:26:15+08:00</updated>
   <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
@@ -210,30 +210,6 @@ Preferences&#8217;&ndash;>&lsquo;Sound&#8217;里可以看到新的HDMI设备。<
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>autocmd BufNewFile,BufRead *.markdown,*.textile set filetype=octopress</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress 中文问题解决]]></title>
-    <link href="http://yanyao.github.io/octpress/blog/2014/02/07/hehe/"/>
-    <updated>2014-02-07T12:20:15+08:00</updated>
-    <id>http://yanyao.github.io/octpress/blog/2014/02/07/hehe</id>
-    <content type="html"><![CDATA[<p>在Mac下，zsh的环境下，LC_ALL和LANG这两个环境变量是不存在的，所以导致octopress在运行</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
-
-
-<p>时报错,解决的办法是在~/.zshrc中加入</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
-</span><span class='line'><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-</span></code></pre></td></tr></table></div></figure>
-
-
 
 ]]></content>
   </entry>

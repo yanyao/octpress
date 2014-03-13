@@ -370,53 +370,6 @@ Gigabyte Z77-DS3H</br>
 
 </article>
 
-
-    <article class="post">
-	<header>
-		<h2 class="title">
-			
-			<a href="http://octopress.org/docs/blogging/">
-			
-				Octopress 中文问题解决</a>
-		</h2>
-		<div class="meta date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-07T12:20:15+08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time></div>
-	</header>
-	<div class="entry-content">
-		<p>在Mac下，zsh的环境下，LC_ALL和LANG这两个环境变量是不存在的，所以导致octopress在运行</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
-
-
-<p>时报错,解决的办法是在~/.zshrc中加入</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
-</span><span class='line'><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-		
-		
-	</div>
-
-</article>
-
 <nav id="pagenavi">
     
     

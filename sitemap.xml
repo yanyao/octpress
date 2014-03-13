@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yanyao.github.io/octpress/blog/2014/02/07/hehe/</loc>
-        <lastmod>2014-03-10T12:39:31+08:00</lastmod>
-    </url>
-    <url>
         <loc>
             http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/
         </loc>
