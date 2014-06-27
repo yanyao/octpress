@@ -7,10 +7,13 @@
 
 	<meta name="author" content="yanyao">
 
-<meta name="description" content="1. qemu编译 在centos 6.5上使用qemu virtio-data-plane
-需要重新编译qemu。系统自带的qemu版本是0.12 而x-data-plane实在qemu
-1.4.0中引入的。所以需要重新编译qemu。 1
-wget http://wiki.qemu- &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="M/Monit这边只需要启动就可以 1
+2
+3
+4
+wget http://www.mmonit.com/dist/mmonit-3.1.2-macosx-universal.tar.gz
+tar xfz mmonit-3.1.2-macosx-universal.tar.gz
+cd &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -51,86 +54,6 @@ wget http://wiki.qemu- &hellip;"> <meta name="keywords" content="">
 </header>
 
 	<div id="content" class="inner">
-
-
-    <article class="post">
-	<header>
-		<h2 class="title">
-			
-			<a href="/octpress/blog/2014/03/10/qemu-virtio-blk-data-plane/">
-			
-				Qemu Virtio-blk Data Plane</a>
-		</h2>
-		<div class="meta date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-10T12:48:51+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2014</time></div>
-	</header>
-	<div class="entry-content">
-		<h2>1. qemu编译</h2>
-
-<p>在centos 6.5上使用qemu virtio-data-plane
-需要重新编译qemu。系统自带的qemu版本是0.12 而x-data-plane实在qemu
-1.4.0中引入的。所以需要重新编译qemu。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wget http://wiki.qemu-project.org/download/qemu-1.7.0.tar.bz2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>编译的时候需要加入对x-data-plane的支持. linux-aio包括x-data-plane</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./configure --linux-aio</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2.</h2>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post">
-	<header>
-		<h2 class="title">
-			
-			<a href="/octpress/blog/2014/03/07/test/">
-			
-				Test</a>
-		</h2>
-		<div class="meta date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-07T13:18:33+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2014</time></div>
-	</header>
-	<div class="entry-content">
-		<p><code>sfat</code> just for testing</p>
-
-		
-		
-	</div>
-
-</article>
 
 
     <article class="post">

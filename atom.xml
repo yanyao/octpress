@@ -4,47 +4,13 @@
   <title><![CDATA[YanYa0]]></title>
   <link href="http://yanyao.github.io/octpress/atom.xml" rel="self"/>
   <link href="http://yanyao.github.io/octpress/"/>
-  <updated>2014-06-27T17:57:58+08:00</updated>
+  <updated>2014-06-27T18:20:22+08:00</updated>
   <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
   </author>
 
-  
-  <entry>
-    <title type="html"><![CDATA[qemu virtio-blk data plane]]></title>
-    <link href="http://yanyao.github.io/octpress/blog/2014/03/10/qemu-virtio-blk-data-plane/"/>
-    <updated>2014-03-10T12:48:51+08:00</updated>
-    <id>http://yanyao.github.io/octpress/blog/2014/03/10/qemu-virtio-blk-data-plane</id>
-    <content type="html"><![CDATA[<h2>1. qemu编译</h2>
-
-<p>在centos 6.5上使用qemu virtio-data-plane
-需要重新编译qemu。系统自带的qemu版本是0.12 而x-data-plane实在qemu
-1.4.0中引入的。所以需要重新编译qemu。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wget http://wiki.qemu-project.org/download/qemu-1.7.0.tar.bz2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>编译的时候需要加入对x-data-plane的支持. linux-aio包括x-data-plane</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./configure --linux-aio</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2.</h2>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://yanyao.github.io/octpress/blog/2014/03/07/test/"/>
-    <updated>2014-03-07T13:18:33+08:00</updated>
-    <id>http://yanyao.github.io/octpress/blog/2014/03/07/test</id>
-    <content type="html"><![CDATA[<p><code>sfat</code> just for testing</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[how to configure m/monit]]></title>
