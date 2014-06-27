@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: octopress | YanYa0]]></title>
+  <title><![CDATA[Category: Octopress | YanYa0]]></title>
   <link href="http://yanyao.github.io/octpress/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://yanyao.github.io/octpress/"/>
-  <updated>2014-06-27T18:39:37+08:00</updated>
+  <updated>2014-06-27T18:53:34+08:00</updated>
   <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
     
   </author>
-  <generator uri="http://ryandeussing.com/">Ryan Deussing</generator>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[How to use Octopress Vim Plugin - vim-octopress]]></title>
+    <title type="html"><![CDATA[How to Use Octopress Vim Plugin - Vim-octopress]]></title>
     <link href="http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/"/>
     <updated>2014-02-07T15:04:38+08:00</updated>
     <id>http://yanyao.github.io/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress</id>
