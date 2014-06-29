@@ -9,13 +9,8 @@
   <meta name="author" content="yanyao">
 
   
-  <meta name="description" content="M/Monit这边只需要启动就可以 1
-2
-3
-4
-wget http://www.mmonit.com/dist/mmonit-3.1.2-macosx-universal.tar.gz
-tar xfz mmonit-3.1.2-macosx-universal.tar.gz
-cd mmonit &hellip;">
+  <meta name="description" content="Deployment Server prerequisites Chef server running on RHEL/CentOS require a functional Upstart environment.
+To check whether Upstart is runing by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +66,76 @@ cd mmonit &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/octpress/blog/2014/06/28/cmow/">CMoW</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-28T21:01:22+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2014</time>
+        
+           | <a href="/octpress/blog/2014/06/28/cmow/#disqus_thread"
+             data-disqus-identifier="http://yanyao.github.io/octpress/blog/2014/06/28/cmow/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Deployment Server prerequisites</h2>
+
+<ul>
+<li>Chef server running on RHEL/CentOS require a functional <code>Upstart</code> environment.
+To check whether <code>Upstart</code> is runing by the following commnad:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$intctl</span> list
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Must have a fully qualified domain name (FQDN). To verify:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$hostname</span> -f
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the hostname resolvable, the command returns the hostname with domain. like:
+<code>deployment.test.com</code>. Ohterwise, you need to configure register a FQDN in your
+DNS server or set a hostname with domain in your system and <code>hosts</code> file(<em>/etc/hosts</em>). ( change the hostname
+in /etc/sysconfig/hostname )</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/octpress/blog/2014/06/28/cmow/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -394,6 +459,10 @@ Gigabyte Z77-DS3H</br>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/octpress/blog/2014/06/28/cmow/">CMoW</a>
+      </li>
+    
+      <li class="post">
         <a href="/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/">How to Configure M/monit</a>
       </li>
     
@@ -409,19 +478,17 @@ Gigabyte Z77-DS3H</br>
         <a href="/octpress/blog/2014/02/07/how-to-use-octopress-vim-plugin-vim-octopress/">How to Use Octopress Vim Plugin - Vim-octopress</a>
       </li>
     
-      <li class="post">
-        <a href="/octpress/blog/2011/06/01/this-is-a-test/">This Is Post</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/octpress/blog/categories/hdmi-audio/'>HDMI_Audio (1)</a></li>
+    <li class='category'><a href='/octpress/blog/categories/cmow/'>CMoW (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/hdmi-audio/'>HDMI_Audio (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/mavericks/'>Mavericks (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/mutil-beast/'>Mutil-Beast (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/osx/'>OSX (1)</a></li>
+<li class='category'><a href='/octpress/blog/categories/openstack/'>Openstack (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/awesome-sauce/'>awesome-sauce (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/chef/'>chef (1)</a></li>
 <li class='category'><a href='/octpress/blog/categories/knife/'>knife (1)</a></li>

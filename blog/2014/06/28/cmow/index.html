@@ -5,17 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Configure M/monit - YanYa0</title>
+  <title>CMoW - YanYa0</title>
   <meta name="author" content="yanyao">
 
   
-  <meta name="description" content="M/Monit这边只需要启动就可以 1
-2
-3
-4
-wget http://www.mmonit.com/dist/mmonit-3.1.2-macosx-universal.tar.gz
-tar xfz mmonit-3.1.2-macosx-universal.tar.gz
-cd mmonit &hellip;">
+  <meta name="description" content="Deployment Server prerequisites Chef server running on RHEL/CentOS require a functional Upstart environment.
+To check whether Upstart is runing by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +19,7 @@ cd mmonit &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit">
+  <link rel="canonical" href="http://yanyao.github.io/octpress/blog/2014/06/28/cmow">
   <link href="/octpress/favicon.png" rel="icon">
   <link href="/octpress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/octpress/atom.xml" rel="alternate" title="YanYa0" type="application/atom+xml">
@@ -74,7 +69,7 @@ cd mmonit &hellip;">
   
   <header>
     
-      <h1 class="entry-title">How to Configure M/monit</h1>
+      <h1 class="entry-title">CMoW</h1>
     
     
       <p class="meta">
@@ -90,7 +85,7 @@ cd mmonit &hellip;">
   
 
 
-<time datetime="2014-03-06T10:36:54+08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+<time datetime="2014-06-28T21:01:22+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://yanyao.github.io/octpress">Comments</a>
@@ -100,48 +95,113 @@ cd mmonit &hellip;">
   </header>
 
 
-<div class="entry-content"><p>M/Monit这边只需要启动就可以</p>
+<div class="entry-content"><h2>Deployment Server prerequisites</h2>
+
+<ul>
+<li>Chef server running on RHEL/CentOS require a functional <code>Upstart</code> environment.
+To check whether <code>Upstart</code> is runing by the following commnad:</li>
+</ul>
+
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>wget http://www.mmonit.com/dist/mmonit-3.1.2-macosx-universal.tar.gz
-</span><span class='line'>tar xfz mmonit-3.1.2-macosx-universal.tar.gz
-</span><span class='line'><span class="nb">cd </span>mmonit-3.1.2
-</span><span class='line'>./mmonit
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$intctl</span> list
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Monit需要更改指向该M/Monit的配置，配置在<em>/etc/monit.conf</em>.主要需要指定M/Monit的地址</p>
+<ul>
+<li>Must have a fully qualified domain name (FQDN). To verify:</li>
+</ul>
+
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">set </span>httpd port 2812
-</span><span class='line'>    allow &lt;mmonit ip&gt;
-</span><span class='line'>    allow localhost
-</span><span class='line'>    allow admin:monit      <span class="c"># require user &#39;admin&#39; with password &#39;monit&#39;</span>
-</span><span class='line'>    allow @monit           <span class="c"># allow users of group &#39;monit&#39; to connect (rw)</span>
-</span><span class='line'>    allow @users <span class="nb">readonly</span>  <span class="c"># allow users of group &#39;users&#39; to connect readonly</span>
-</span><span class='line'><span class="nb">set </span>mmonit http://monit:monit@&lt;mmonit ip&gt;:8080/collector
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$hostname</span> -f
 </span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
+<p>If the hostname resolvable, the command returns the hostname with domain. like:
+<code>deployment.test.com</code>. Ohterwise, you need to configure register a FQDN in your
+DNS server or set a hostname with domain in your system and <code>hosts</code> file(<em>/etc/hosts</em>). ( change the hostname
+in /etc/sysconfig/hostname )</p>
 
-<p>对于Monit,可以通过<code>monit</code>命令来打开或者关闭对于某个服务的监控</p>
+<!-- more -->
+
+
+<h2>Deployment Patterns</h2>
+
+<p>By default, there&rsquo;re three deployment modes.</p>
+
+<ul>
+<li>Minimal.</li>
+<li>Single controller node + <em>n</em> compute nodes</li>
+<li>Distributed Database. Database (mysql or DB2) runs on a dedicated node. And Openstack services on one node or several nodes.</li>
+</ul>
+
+
+<h3>Minimal deployment configuration</h3>
+
+<p>There are two options when doing CMoW minimal deployment.</p>
+
+<ul>
+<li>Install CMoW, Chef Server, Chef Client as well as all Openstack services in one physical server.</li>
+<li>Install CMoW and Chef Server in one server. But leave Chef Client and
+Openstack All-in-One installing on another server.</li>
+</ul>
+
+
+<h4>Minimal deployment option I</h4>
+
+<p>Login to the deployment server as the root user. This is the server where IBM Cloud Manager with OpenStack was installed.</p>
+
+<p>Copy the example environment for the topology that you deploy. Change your-environment-name to the name for your environment.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>knife environment show example-ibm-os-allinone -d -Fjson &gt; minimal-env.json
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Edit <code>minimal-env.json</code>. Change the following value.</p>
+
+<ul>
+<li><em>Name</em>: set the environment name. Here we use <code>minimal-env</code> which is the same
+as the environment file name.</li>
+<li><em>openstack.endpoint.host</em>, <em>openstack.endpoints.bind-host</em> and <em>openstack.endpoints.mq.host</em>: Change the default value <del>127.0.0.1</del> to the IP of the deployment server.</li>
+<li><em>openstack.db.service_type</em>: Set from <del>db2</del> to mysql.</li>
+</ul>
+
+
+<p>Upload the environment to the Chef Server.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>knife environment from file minimal-env.json
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After that, you can deploy the Openstack service now.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>monit monitor &lt;name&gt;
-</span><span class='line'>monit unmonitor &lt;name&gt;
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$CMoW</span>&gt;knife bootstrap &lt;your deployment FQDN or ip&gt;
+</span><span class='line'><span class="nv">$CMoW</span>&gt;chef-client -E minimal-env -o role<span class="o">[</span>ibm-os-allinone-kvm<span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h4>Issues</h4>
+
+<ul>
+<li><blockquote><p>Error executing action &lsquo;install&rsquo; on resource &lsquo;package[kernel-devel]&rsquo;</p></blockquote></li>
+</ul>
+
+
+<p>Need to download the specific <code>kernel-devel</code> package. Check the current running
+kernel version.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$uname</span> -r
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If version is <code>2.6.32-431</code>. The <code>kernel-devel</code> package can be download
+<a href="http://mirror.centos.org/centos/6.5/centosplus/x86_64/Packages/" title="kernel-devel-2.6.32-431">here</a>. Ohterwise, find the corresponding rpm.</p>
 </div>
 
 
@@ -164,12 +224,12 @@ cd mmonit &hellip;">
   
 
 
-<time datetime="2014-03-06T10:36:54+08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+<time datetime="2014-06-28T21:01:22+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/octpress/blog/categories/m-slash-monit/'>m/monit</a>, <a class='category' href='/octpress/blog/categories/monit/'>monit</a>
+    <a class='category' href='/octpress/blog/categories/cmow/'>CMoW</a>, <a class='category' href='/octpress/blog/categories/openstack/'>Openstack</a>
   
 </span>
 
@@ -178,7 +238,7 @@ cd mmonit &hellip;">
     
       <div class="sharing">
   
-  <a href="/octpress//twitter.com/share" class="twitter-share-button" data-url="http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/" data-via="" data-counturl="http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/" >Tweet</a>
+  <a href="/octpress//twitter.com/share" class="twitter-share-button" data-url="http://yanyao.github.io/octpress/blog/2014/06/28/cmow/" data-via="" data-counturl="http://yanyao.github.io/octpress/blog/2014/06/28/cmow/" >Tweet</a>
   
   
   
@@ -187,10 +247,8 @@ cd mmonit &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/octpress/blog/2014/02/11/knife-solo/" title="Previous Post: knife-solo">&laquo; knife-solo</a>
+        <a class="basic-alignment left" href="/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/" title="Previous Post: how to configure m/monit">&laquo; how to configure m/monit</a>
       
-      
-        <a class="basic-alignment right" href="/octpress/blog/2014/06/28/cmow/" title="Next Post: CMoW">CMoW &raquo;</a>
       
     </p>
   </footer>
@@ -276,8 +334,8 @@ cd mmonit &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/';
-        var disqus_url = 'http://yanyao.github.io/octpress/blog/2014/03/06/how-to-configure-m-slash-monit/';
+        var disqus_identifier = 'http://yanyao.github.io/octpress/blog/2014/06/28/cmow/';
+        var disqus_url = 'http://yanyao.github.io/octpress/blog/2014/06/28/cmow/';
         var disqus_script = 'embed.js';
       
     (function () {

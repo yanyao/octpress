@@ -4,7 +4,7 @@
   <title><![CDATA[YanYa0]]></title>
   <link href="http://yanyao.github.io/octpress/atom.xml" rel="self"/>
   <link href="http://yanyao.github.io/octpress/"/>
-  <updated>2014-06-27T18:53:34+08:00</updated>
+  <updated>2014-06-29T19:29:53+08:00</updated>
   <id>http://yanyao.github.io/octpress/</id>
   <author>
     <name><![CDATA[yanyao]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CMoW]]></title>
+    <link href="http://yanyao.github.io/octpress/blog/2014/06/28/cmow/"/>
+    <updated>2014-06-28T21:01:22+08:00</updated>
+    <id>http://yanyao.github.io/octpress/blog/2014/06/28/cmow</id>
+    <content type="html"><![CDATA[<h2>Deployment Server prerequisites</h2>
+
+<ul>
+<li>Chef server running on RHEL/CentOS require a functional <code>Upstart</code> environment.
+To check whether <code>Upstart</code> is runing by the following commnad:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$intctl</span> list
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Must have a fully qualified domain name (FQDN). To verify:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$hostname</span> -f
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the hostname resolvable, the command returns the hostname with domain. like:
+<code>deployment.test.com</code>. Ohterwise, you need to configure register a FQDN in your
+DNS server or set a hostname with domain in your system and <code>hosts</code> file(<em>/etc/hosts</em>). ( change the hostname
+in /etc/sysconfig/hostname )</p>
+
+<!-- more -->
+
+
+<h2>Deployment Patterns</h2>
+
+<p>By default, there&rsquo;re three deployment modes.</p>
+
+<ul>
+<li>Minimal.</li>
+<li>Single controller node + <em>n</em> compute nodes</li>
+<li>Distributed Database. Database (mysql or DB2) runs on a dedicated node. And Openstack services on one node or several nodes.</li>
+</ul>
+
+
+<h3>Minimal deployment configuration</h3>
+
+<p>There are two options when doing CMoW minimal deployment.</p>
+
+<ul>
+<li>Install CMoW, Chef Server, Chef Client as well as all Openstack services in one physical server.</li>
+<li>Install CMoW and Chef Server in one server. But leave Chef Client and
+Openstack All-in-One installing on another server.</li>
+</ul>
+
+
+<h4>Minimal deployment option I</h4>
+
+<p>Login to the deployment server as the root user. This is the server where IBM Cloud Manager with OpenStack was installed.</p>
+
+<p>Copy the example environment for the topology that you deploy. Change your-environment-name to the name for your environment.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>knife environment show example-ibm-os-allinone -d -Fjson &gt; minimal-env.json
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Edit <code>minimal-env.json</code>. Change the following value.</p>
+
+<ul>
+<li><em>Name</em>: set the environment name. Here we use <code>minimal-env</code> which is the same
+as the environment file name.</li>
+<li><em>openstack.endpoint.host</em>, <em>openstack.endpoints.bind-host</em> and <em>openstack.endpoints.mq.host</em>: Change the default value <del>127.0.0.1</del> to the IP of the deployment server.</li>
+<li><em>openstack.db.service_type</em>: Set from <del>db2</del> to mysql.</li>
+</ul>
+
+
+<p>Upload the environment to the Chef Server.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>knife environment from file minimal-env.json
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After that, you can deploy the Openstack service now.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$CMoW</span>&gt;knife bootstrap &lt;your deployment FQDN or ip&gt;
+</span><span class='line'><span class="nv">$CMoW</span>&gt;chef-client -E minimal-env -o role<span class="o">[</span>ibm-os-allinone-kvm<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Issues</h4>
+
+<ul>
+<li><blockquote><p>Error executing action &lsquo;install&rsquo; on resource &lsquo;package[kernel-devel]&rsquo;</p></blockquote></li>
+</ul>
+
+
+<p>Need to download the specific <code>kernel-devel</code> package. Check the current running
+kernel version.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$uname</span> -r
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If version is <code>2.6.32-431</code>. The <code>kernel-devel</code> package can be download
+<a href="http://mirror.centos.org/centos/6.5/centosplus/x86_64/Packages/" title="kernel-devel-2.6.32-431">here</a>. Ohterwise, find the corresponding rpm.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Configure M/monit]]></title>
